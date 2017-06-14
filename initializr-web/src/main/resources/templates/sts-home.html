@@ -84,6 +84,13 @@
                 {{name}}
             </label>
             {{/bootVersions.content}}
+            <label>Cloud SDK Version:</label>
+            {{#sdkVersions.content}}
+            <label class="radio">
+                <input type="radio" name="sdkVersion" value="{{id}}"{{#default}} checked="true"{{/default}}/>
+                {{name}}
+            </label>
+            {{/sdkVersions.content}}
             <button name="generate-project" type="submit" class="btn">Generate</button>
         </form>
     </div>

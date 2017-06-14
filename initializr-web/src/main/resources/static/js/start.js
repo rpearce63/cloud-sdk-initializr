@@ -175,9 +175,18 @@ $(function () {
         $("#baseDir").attr('value', this.value)
         generatePackageName();
     });
+    $("#parentPom").on("change", function(e) {
+    	if( $(this.options[this.selectedIndex]).val() === "springboot") {
+    		$(".sdkVersions").addClass("hidden");
+    		$(".bootVersions").removeClass("hidden");
+    	} else {
+    		$(".sdkVersions").removeClass("hidden");
+    		$(".bootVersions").addClass("hidden");
+    	}
+    });
     $("#bootVersion").on("change", function (e) {
         refreshDependencies(this.value);
-        initializeSearchEngine(starters, this.value);
+        initializeSearchEngine#(starters, this.value);
     });
     $(".tofullversion a").on("click", function() {
         $(".full").removeClass("hidden");
