@@ -141,7 +141,7 @@ public class InitializrAutoConfiguration {
 			InitializrProperties properties) {
 		InitializrMetadata metadata = InitializrMetadataBuilder
 				.fromInitializrProperties(properties).build();
-		return new DefaultInitializrMetadataProvider(metadata, createRestTemplate());
+		return new DefaultInitializrMetadataProvider(metadata, new RestTemplate());
 	}
 
 	@Bean
