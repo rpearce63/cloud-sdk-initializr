@@ -345,7 +345,7 @@ public class ProjectGenerator {
 		if (isMavenBuild(request)) {
 			model.put("mavenBuild", true);
 			ParentPom parentPom = "cloudsdk".equals(request.getParentPom()) ? 
-					new ParentPom("cloud.sf.paas", "technical-platform-starter-parent", request.getSdkVersion()) :
+					new ParentPom("sf.cloud.paas", "technical-platform-starter-parent", request.getSdkVersion()) :
 					metadata.getConfiguration().getEnv().getMaven()
 					.resolveParentPom(request.getBootVersion());
 			if (parentPom.isIncludeSpringBootBom()
