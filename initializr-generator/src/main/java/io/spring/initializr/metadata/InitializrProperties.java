@@ -67,6 +67,18 @@ public class InitializrProperties extends InitializrConfiguration {
 	 */
 	@JsonIgnore
 	private final List<DefaultMetadataElement> bootVersions = new ArrayList<>();
+	
+	/**
+	 * Available Parent POMs
+	 */
+	@JsonIgnore
+	private final List<DefaultMetadataElement> parentPoms = new ArrayList<>();
+	
+	/**
+	 * Available Cloud SDK Versions
+	 */
+	@JsonIgnore
+	private final List<DefaultMetadataElement> sdkVersions = new ArrayList<>();
 
 	/**
 	 * GroupId metadata.
@@ -127,6 +139,14 @@ public class InitializrProperties extends InitializrConfiguration {
 
 	public List<DefaultMetadataElement> getBootVersions() {
 		return bootVersions;
+	}
+	
+	public List<DefaultMetadataElement> getParentPoms() {
+		return parentPoms;
+	}
+	
+	public List<DefaultMetadataElement> getSdkVersions() {
+		return sdkVersions;
 	}
 
 	public SimpleElement getGroupId() {

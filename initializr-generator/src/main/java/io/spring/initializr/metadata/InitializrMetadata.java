@@ -50,7 +50,14 @@ public class InitializrMetadata {
 
 	private final SingleSelectCapability languages = new SingleSelectCapability("language",
 			"Language", "programming language");
+	
+	private final SingleSelectCapability parentPoms = new SingleSelectCapability("parentPom",
+			"Parent POMs", "parent poms");
 
+	private final SingleSelectCapability sdkVersions = new SingleSelectCapability("sdkVersion",
+			"Cloud SDK Version", "cloud sdk version");
+
+	
 	private final TextCapability name = new TextCapability("name", "Name",
 			"project name (infer application name)");
 
@@ -135,6 +142,8 @@ public class InitializrMetadata {
 		this.configuration.merge(other.configuration);
 		this.dependencies.merge(other.dependencies);
 		this.types.merge(other.types);
+		this.parentPoms.merge(other.parentPoms);
+		this.sdkVersions.merge(other.sdkVersions);
 		this.bootVersions.merge(other.bootVersions);
 		this.packagings.merge(other.packagings);
 		this.javaVersions.merge(other.javaVersions);
@@ -248,6 +257,8 @@ public class InitializrMetadata {
 	public Map<String, Object> defaults() {
 		Map<String, Object> defaults = new LinkedHashMap<>();
 		defaults.put("type", defaultId(types));
+		defaults.put("parentPom", defaultId(parentPoms));
+		defaults.put("sdkVersion", defaultId(sdkVersions));
 		defaults.put("bootVersion", defaultId(bootVersions));
 		defaults.put("packaging", defaultId(packagings));
 		defaults.put("javaVersion", defaultId(javaVersions));
@@ -304,6 +315,14 @@ public class InitializrMetadata {
 			}
 			return null;
 		}
+	}
+
+	public SingleSelectCapability getParentPoms() {
+		return parentPoms;
+	}
+
+	public SingleSelectCapability getSdkVersions() {
+		return sdkVersions;
 	}
 
 }

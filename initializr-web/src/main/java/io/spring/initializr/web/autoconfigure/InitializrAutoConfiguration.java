@@ -37,6 +37,13 @@ import io.spring.initializr.web.support.DefaultDependencyMetadataProvider;
 import io.spring.initializr.web.support.DefaultInitializrMetadataProvider;
 import io.spring.initializr.web.ui.UiController;
 
+import org.apache.http.HttpHost;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration;
@@ -48,6 +55,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.resource.ResourceUrlProvider;
 
@@ -133,7 +141,7 @@ public class InitializrAutoConfiguration {
 			InitializrProperties properties) {
 		InitializrMetadata metadata = InitializrMetadataBuilder
 				.fromInitializrProperties(properties).build();
-		return new DefaultInitializrMetadataProvider(metadata, new RestTemplate());
+		return new DefaultInitializrMetadataProvider(metadata, createRestTemplate());
 	}
 
 	@Bean
@@ -162,6 +170,29 @@ public class InitializrAutoConfiguration {
 					.setManagementEnabled(true).setStatisticsEnabled(true);
 		}
 
+	}
+	
+	private RestTemplate createRestTemplate() {
+		final String username = "crzs";
+		final String password = "5778o62SFNet";
+		final String proxyUrl = "in00pxy1.opr.statefarm.org";
+		final int port = 8000;
+		
+		CredentialsProvider credsProvider = new BasicCredentialsProvider();
+		credsProvider.setCredentials(
+				new AuthScope(proxyUrl, port),
+				new UsernamePasswordCredentials(username, password));
+		HttpHost myProxy = new HttpHost(proxyUrl, port);
+		HttpClientBuilder clientBuilder = HttpClientBuilder.create();
+		
+		clientBuilder.setProxy(myProxy).setDefaultCredentialsProvider(credsProvider).disableCookieManagement();
+		
+		HttpClient httpClient = clientBuilder.build();
+		HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
+		factory.setHttpClient(httpClient);
+		
+		return new RestTemplate(factory);
+		
 	}
 
 }

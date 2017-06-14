@@ -43,6 +43,9 @@ public class BasicProjectRequest {
 	private String language;
 	private String packageName;
 	private String javaVersion;
+	private String parentPom;
+	private String sdkVersion;
+	
 
 	// The base directory to create in the archive - no baseDir by default
 	private String baseDir;
@@ -171,6 +174,22 @@ public class BasicProjectRequest {
 
 	public void setBaseDir(String baseDir) {
 		this.baseDir = baseDir;
+	}
+
+	public String getParentPom() {
+		return parentPom;
+	}
+
+	public void setParentPom(String parentPom) {
+		this.parentPom = parentPom;
+	}
+
+	public String getSdkVersion() {
+		return sdkVersion;
+	}
+
+	public void setSdkVersion(String sdkVersion) {
+		this.sdkVersion = sdkVersion;
 	}
 
 }

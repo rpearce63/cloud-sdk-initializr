@@ -344,13 +344,23 @@ public class ProjectGenerator {
 
 		if (isMavenBuild(request)) {
 			model.put("mavenBuild", true);
-			ParentPom parentPom = metadata.getConfiguration().getEnv().getMaven()
+			ParentPom parentPom = "cloudsdk".equals(request.getParentPom()) ? 
+					new ParentPom("cloud.sf.paas", "technical-platform-starter-parent", request.getSdkVersion()) :
+					metadata.getConfiguration().getEnv().getMaven()
 					.resolveParentPom(request.getBootVersion());
 			if (parentPom.isIncludeSpringBootBom()
 					&& !request.getBoms().containsKey("spring-boot")) {
 				request.getBoms().put("spring-boot", metadata.createSpringBootBom(
 						request.getBootVersion(), "spring-boot.version"));
 			}
+			
+			/*
+			 * if spring boot parent is selected, and a Cloud SDK is included,
+			 * need to include the Cloud sdk dependency bom
+			 * if (parentPom.getGroupId().contains("spring-boot") &&
+			 * 
+			 * }
+			 */
 
 			model.put("mavenParentGroupId", parentPom.getGroupId());
 			model.put("mavenParentArtifactId", parentPom.getArtifactId());
