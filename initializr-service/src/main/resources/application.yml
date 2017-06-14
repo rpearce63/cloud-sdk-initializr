@@ -206,51 +206,51 @@ initializr:
             - versionRange: "[1.2.0.RELEASE,1.4.0.M1)"
               version: 1.16.6
           starter: false
-    -name: Cloud-SDK
-     content: 
-      - name: Cloud-SDK CXF
+    - name: Cloud-SDK
+      content: 
+        - name: Cloud-SDK CXF
           id: cloudsdkcxf
           groupId: sf.cloud.pass
           artifactId: technical-platform-starter-cxf
           description: Support for the Soap Web Services (Apache CXF)
-      - name: Cloud-SDK REST
-           id: cloudsdkrest
-           groupId: sf.cloud.pass
-           artifactId: technical-platform-starter-rest
-           description: Support for RESTful Web Services in(Spring MVC)
-       - name: Cloud-SDK PostgreSQL
-           id: cloudsdkpostgresql
-           groupId: sf.cloud.pass
-           artifactId: technical-platform-starter-postgresql
-           description: Support for PostgreSQL
-      - name: Cloud-SDK DB2
-           id: cloudsdkdb2
-           groupId: sf.cloud.pass
-           artifactId: technical-platform-starter-db2
-           description: Support for DB2
-       -name: Cloud-SDK Web
-           id: cloudsdkweb
-           groupId: sf.cloud.pass
-           artifactId: technical-platform-starter-web
-           description: Support for Spring Web MVC (includes Thymeleaf)
-       facets: 
-        -web
+        - name: Cloud-SDK REST
+          id: cloudsdkrest
+          groupId: sf.cloud.pass
+          artifactId: technical-platform-starter-rest
+          description: Support for RESTful Web Services in(Spring MVC)
+        - name: Cloud-SDK PostgreSQL
+          id: cloudsdkpostgresql
+          groupId: sf.cloud.pass
+          artifactId: technical-platform-starter-postgresql
+          description: Support for PostgreSQL
+        - name: Cloud-SDK DB2
+          id: cloudsdkdb2
+          groupId: sf.cloud.pass
+          artifactId: technical-platform-starter-db2
+          description: Support for DB2
+        - name: Cloud-SDK Web
+          id: cloudsdkweb
+          groupId: sf.cloud.pass
+          artifactId: technical-platform-starter-web
+          description: Support for Spring Web MVC (includes Thymeleaf)
+          facets: 
+           - web
         - name: Cloud SDK RIAK
-              id: cloudsdkriak
-              groupId: sf.cloud.pass
-              artifactId: techical-platform-starter-riak
-              description: Support for NoSQL(RIAK)
+          id: cloudsdkriak
+          groupId: sf.cloud.pass
+          artifactId: techical-platform-starter-riak
+          description: Support for NoSQL(RIAK)
         - name : Cloud-SDK LDAP
-              id: cloudsdkldap
-              groupId: sf.cloud.pass
-              artifactId: technical-platform-starter-ldap
-              description: Support for LDAP queries
+          id: cloudsdkldap
+          groupId: sf.cloud.pass
+          artifactId: technical-platform-starter-ldap
+          description: Support for LDAP queries
         - name: Cloud-SDK Gemfire
-              id: cloudsdkgemfire
-              groupId: sf.cloud.pass
-              artifactId: technical-platform-starter-gemfire
-              description: Support for Distributed Caching (Gemfire)       
-     - name: Web
+          id: cloudsdkgemfire
+          groupId: sf.cloud.pass
+          artifactId: technical-platform-starter-gemfire
+          description: Support for Distributed Caching (Gemfire)       
+    - name: Web
       content:
         - name: Web
           id: web
@@ -1215,21 +1215,21 @@ initializr:
     - name: 1.1.12
       id: 1.1.12.RELEASE
       default: false
-   parentPoms: 
-    -name: Cloud-SDK
+  parentPoms: 
+    - name: Cloud-SDK
       id: cloudsdk
       default: true
-      -name: Spring Boot
+    - name: Spring Boot
       id: springboot
       default: false
-    sdkVersions:
-    -name : Latest Release
-    id: Latest
-    default : false
-    -name: 1.1.0.M1(web support)
+  sdkVersions:
+    - name : Latest Release
+      id: Latest
+      default : false
+    - name: 1.1.0.M1(web support)
       id: 1.1.0.M1
       default: true
-    -name: 1.0.2.RELEASE
+    - name: 1.0.2.RELEASE
       id: 1.0.2.RELEASE
       default: false
    
