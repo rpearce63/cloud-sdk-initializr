@@ -15,7 +15,10 @@ body, h1, h2, h3 {
     background-color: #34302d;
     font-size: 25px;
     padding: 0.5em 0;
-    border-top: 4px solid #6db33f;
+    background-color:#E1261C;
+    min-height:80px;
+    
+
 }
 
 .start-header h1 {
@@ -23,7 +26,9 @@ body, h1, h2, h3 {
 }
 
 .start-header small {
-    text-transform: none;
+    text-transform: uppercase;
+    color:#eee;
+    
     font-size: 50%;
 }
 
