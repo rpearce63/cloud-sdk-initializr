@@ -357,10 +357,12 @@ public class ProjectGenerator {
 			/*
 			 * if spring boot parent is selected, and a Cloud SDK is included,
 			 * need to include the Cloud sdk dependency bom
-			 * if (parentPom.getGroupId().contains("spring-boot") &&
-			 * 
-			 * }
 			 */
+			  if (parentPom.getArtifactId().contains("spring-boot") &&
+					  dependencyIds.stream().anyMatch(d -> d.contains("cloudsdk"))) {
+				  request.getBoms().put("cloud-sdk-bom", BillOfMaterials.create("sf.cloud.paas", "technical-platform-dependencies", "1.0.2.RELEASE"));
+			  }
+			  
 
 			model.put("mavenParentGroupId", parentPom.getGroupId());
 			model.put("mavenParentArtifactId", parentPom.getArtifactId());

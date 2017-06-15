@@ -250,6 +250,7 @@ public class InitializrMetadata {
 		bom.setOrder(100);
 		return bom;
 	}
+	
 
 	/**
 	 * Return the defaults for the capabilities defined on this instance.

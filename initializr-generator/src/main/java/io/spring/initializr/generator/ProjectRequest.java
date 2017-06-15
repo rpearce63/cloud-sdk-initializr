@@ -263,10 +263,12 @@ public class ProjectRequest extends BasicProjectRequest {
 				resolvedDependencies.add(metadata.getDependencies().get("web"));
 				facets.add("web");
 			}
-			// Add the tomcat starter in provided scope
-			Dependency tomcat = new Dependency().asSpringBootStarter("tomcat");
-			tomcat.setScope(Dependency.SCOPE_PROVIDED);
-			resolvedDependencies.add(tomcat);
+			if (resolvedDependencies.stream().noneMatch(d -> "cloudsdkweb".equals(d.getId()))) {
+				// Add the tomcat starter in provided scope
+				Dependency tomcat = new Dependency().asSpringBootStarter("tomcat");
+				tomcat.setScope(Dependency.SCOPE_PROVIDED);
+				resolvedDependencies.add(tomcat);
+			}
 		}
 		if (resolvedDependencies.stream().noneMatch(Dependency::isStarter)) {
 			// There"s no starter so we add the default one

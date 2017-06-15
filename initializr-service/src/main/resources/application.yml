@@ -22,6 +22,10 @@ spring:
 initializr:
   env:
     boms:
+      cloud-sdk-bom:
+        group-id: sf.cloud.paas
+        artifact-id: technical-platform-dependencies
+        version: 1.0.2.RELEASE
       spring-cloud:
         groupId: org.springframework.cloud
         artifactId: spring-cloud-dependencies
@@ -210,44 +214,44 @@ initializr:
       content: 
         - name: Cloud-SDK CXF
           id: cloudsdkcxf
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: technical-platform-starter-cxf
           description: Support for the Soap Web Services (Apache CXF)
         - name: Cloud-SDK REST
           id: cloudsdkrest
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: technical-platform-starter-rest
           description: Support for RESTful Web Services in(Spring MVC)
         - name: Cloud-SDK PostgreSQL
           id: cloudsdkpostgresql
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: technical-platform-starter-postgresql
           description: Support for PostgreSQL
         - name: Cloud-SDK DB2
           id: cloudsdkdb2
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: technical-platform-starter-db2
           description: Support for DB2
         - name: Cloud-SDK Web
           id: cloudsdkweb
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: technical-platform-starter-web
           description: Support for Spring Web MVC (includes Thymeleaf)
           facets: 
            - web
         - name: Cloud SDK RIAK
           id: cloudsdkriak
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: techical-platform-starter-riak
           description: Support for NoSQL(RIAK)
         - name : Cloud-SDK LDAP
           id: cloudsdkldap
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: technical-platform-starter-ldap
           description: Support for LDAP queries
         - name: Cloud-SDK Gemfire
           id: cloudsdkgemfire
-          groupId: sf.cloud.pass
+          groupId: sf.cloud.paas
           artifactId: technical-platform-starter-gemfire
           description: Support for Distributed Caching (Gemfire)       
     - name: Web
