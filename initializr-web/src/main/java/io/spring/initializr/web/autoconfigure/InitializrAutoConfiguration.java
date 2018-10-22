@@ -173,9 +173,9 @@ public class InitializrAutoConfiguration {
 	}
 	
 	private RestTemplate createRestTemplate() {
-		final String username = "crzs";
-		final String password = "5778o62SFNet";
-		final String proxyUrl = "in00pxy1.opr.statefarm.org";
+		final String username = "";
+		final String password = "";
+		final String proxyUrl = "";
 		final int port = 8000;
 		
 		CredentialsProvider credsProvider = new BasicCredentialsProvider();
